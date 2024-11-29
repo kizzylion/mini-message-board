@@ -1,4 +1,4 @@
-<a href="/message-detail/<%= message.id %>" class="message-card">
+<a href="/<%= message.id %>" class="message-card">
     <div class="container">
         <header>
             <h3><%= message.receiver %></h3>
@@ -6,8 +6,9 @@
         </header>
         
         <div class="message-body">
-            <h4 class="message-title"><%= message.Subject %></h4>
-            <p class="message-content"><%= message.messages %></p>
+            <h4 class="message-title"><%= message.subject %></h4>
+            <div class="message-content"><%= message.message %></div>
+            
         </div>
     </div>
 

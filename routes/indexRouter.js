@@ -3,14 +3,16 @@ const homeRouter = Router();
 const {
   getAllMessages,
   getMessageDetail,
+  getNewMessage,
+  createMessage,
 } = require("../controllers/indexRouterController");
 
 homeRouter.get("/", getAllMessages);
 
-homeRouter.get("/new-message", (req, res) => {
-  res.render("new-message");
-});
+homeRouter.get("/new-message", getNewMessage);
 
-homeRouter.get("/message-detail/:messageId", getMessageDetail);
+homeRouter.get("/:messageId", getMessageDetail);
+
+homeRouter.post("/new-message", createMessage);
 
 module.exports = homeRouter;

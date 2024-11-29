@@ -2,7 +2,7 @@
 <html lang="en">
 <%- include("partials/head", { title: "Message Detail" }) %>
 <body>
-    <%- include("partials/navigation") %>
+    <%- include("partials/navigation", { messages }) %>
     <main>
         <div class="container">
             <div class="message-detail">
@@ -18,13 +18,13 @@
                             <p><%= message.dateCreated %></p>
                         </div>
                         <div class="message-subject">
-                            <h4><%= message.Subject %></h4>
+                            <h4><%= message.subject %></h4>
                         </div>
                     </div>
                 </header>
                 <div class="message-body">
-                    <h4><%= message.Subject %></h4>
-                    <p><%= message.messages %></p>
+                    <h4><%= message.subject %></h4>
+                    <div class="message-content"><%= message.message %></div>
                 </div>
             </div>
         </div>

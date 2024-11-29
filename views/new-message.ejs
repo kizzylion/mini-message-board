@@ -2,7 +2,7 @@
 <html lang="en">
 <%- include("partials/head", { title: "New Message" }) %>
 <body>
-    <%- include("partials/navigation") %>
+    <%- include("partials/navigation", { messages }) %>
     <main>
         <div class="container">
             <div class="new-message-form">
@@ -16,7 +16,7 @@
                 <form class="new-message-form-body" id="new-message-form" action="/new-message" method="post" >
                     <p class="form-field"><label for="receiver">To: <input type="text" id="receiver" name="receiver" placeholder="Receiver"></label></p>
                     <p class="form-field"><label for="subject">Subject: <input type="text" id="subject" name="subject" placeholder="Subject"></label></p>
-                    <p class="form-field"><label for="message">Message: <textarea id="message" name="message" placeholder="Message"></textarea></label></p>
+                    <p class="form-field"><label for="message">Message: <textarea type="text" rows="10" id="message" name="message" placeholder="Message"></textarea></label></p>
                     <button type="submit">Send Message</button>
                 </form>
             </div>

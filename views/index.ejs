@@ -3,13 +3,18 @@
 <%- include("partials/head", { title: "Mini Message Board" }) %>
 <body>
 
-    <%- include("partials/navigation") %>
+    <%- include("partials/navigation", { messages }) %>
     <main>
         <div class="container">
             <div class="chats">
+                <% if (messages.length > 0) { %>
                 <% messages.forEach((message) => { %>
                     <%- include("partials/message-card", { message }) %>
                 <% }) %>
+                <% } else { %>
+                    <h1>No messages found</h1>
+                    <a href="/new-message">Create a new message</a>
+                <% } %>
             </div>
         </div>
     </main>
