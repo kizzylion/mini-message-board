@@ -22,6 +22,20 @@
             </div>
         </div>
     </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("new-message-form");
+            form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            
+            if (!form.receiver.value || !form.subject.value || !form.message.value) {
+                alert("All fields are required");
+                return;
+            }
+                form.submit();
+                });     
+        });
+    </script>
     
 </body>
 </html>
