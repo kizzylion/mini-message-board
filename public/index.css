@@ -94,6 +94,10 @@ header#navigation .content #logoDiv p {
   font-weight: 400;
   color: #101010;
 }
+main {
+  overflow: hidden;
+  height: 100%;
+}
 
 main > .container {
   padding:  0.5rem;
@@ -102,7 +106,8 @@ main > .container {
   height: 100%;
 }
 
-main .chats {
+main .chats,
+main .message-detail {
   display: flex;
   flex-direction: column;
   gap: 0.002;
@@ -110,7 +115,7 @@ main .chats {
   max-width: 596px;
 }
 main .chats .message-card {
-  background-color: #fff;
+  background-color: #FBFBFB;
   padding: 0.5rem 0rem 0rem 0.75rem;
   display: flex;
   flex-direction: column
@@ -181,7 +186,7 @@ main .chats .message-card .message-content {
 }
 
 main .chats .message-card:hover {
-  background-color: #2639c2;
+  background-color: #4859d6;
   border-radius: 0.63rem;
   z-index: 10;
 
@@ -207,6 +212,102 @@ main .chats .message-card:hover .message-content {
 }
 
 
+/* message detail */
+
+main .message-detail {
+
+  background-color: #fff;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 4px rgba(61, 61, 61, 0.1);
+
+
+}
+
+main .message-detail header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  background-color: #F9F9F9;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  border-bottom: 1px solid #E6E6E6;
+  
+
+}
+
+main .message-detail .content-header .close-icon {
+    width: 0.75rem;
+    height: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff0000;
+    border-radius: 50%;
+}
+
+main .message-detail .content-header .close-icon svg {
+  
+  fill: #1a1a1a;
+
+}
+
+main .message-detail .message-detail-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+main .message-detail .message-detail-header .message-receiver {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+main .message-detail .message-detail-header .message-receiver .date {
+  color: #6d6d6d;
+  font-size: 0.75rem;
+  text-align: right;
+}
+main .message-detail .message-detail-header .message-receiver .receiver {
+  color: #0e0e0e;
+  font-weight: 500;
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  width: fit-content;
+  white-space: nowrap;
+}
+
+main .message-detail .message-detail-header .message-subject .subject {
+  color: #282828;
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+
+main .message-detail .message-body {
+  padding: 1.25rem 0.5rem;
+  height: 100%;
+
+}
+
+main .message-detail .message-body .subject {
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #282828
+}
+
+main .message-detail .message-body .message-content {
+  font-size: 0.75rem;
+  color: #0E0E0E;
+  font-weight: 400;
+
+}
 
 footer#footer {
   background-color: #fff;
