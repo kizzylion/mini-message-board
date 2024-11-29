@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head", { title: "New Message" }) %>
+<body>
+    <%- include("partials/navigation") %>
+    <main>
+        <div class="container">
+            <div class="new-message-form">
+                <header>
+                    <a class="close-icon">
+                        <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.13333 6.10267L1.89733 5.86667L3.764 4.00001L1.89733 2.13334L2.13333 1.89734L4 3.76401L5.86667 1.89734L6.10267 2.13334L4.236 4.00001L6.10267 5.86667L5.86667 6.10267L4 4.23601L2.13333 6.10267Z" fill="#2F2F2F"/>
+                        </svg>
+                    </a>
+                </header>
+                <form class="new-message-form-body" id="new-message-form" action="/new-message" method="post" >
+                    <p class="form-field"><label for="receiver">To: <input type="text" id="receiver" name="receiver" placeholder="Receiver"></label></p>
+                    <p class="form-field"><label for="subject">Subject: <input type="text" id="subject" name="subject" placeholder="Subject"></label></p>
+                    <p class="form-field"><label for="message">Message: <textarea id="message" name="message" placeholder="Message"></textarea></label></p>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>

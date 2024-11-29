@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head", { title: "Message Detail" }) %>
+<body>
+    <%- include("partials/navigation") %>
+    <main>
+        <div class="container">
+            <div class="message-detail">
+                <header>
+                    <a class="close-icon">
+                        <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.13333 6.10267L1.89733 5.86667L3.764 4.00001L1.89733 2.13334L2.13333 1.89734L4 3.76401L5.86667 1.89734L6.10267 2.13334L4.236 4.00001L6.10267 5.86667L5.86667 6.10267L4 4.23601L2.13333 6.10267Z" fill="#2F2F2F"/>
+                        </svg>
+                    </a>
+                    <div class="message-detail-header">
+                        <div class="message-receiver">
+                            <h3><%= message.receiver %></h3>
+                            <p><%= message.dateCreated %></p>
+                        </div>
+                        <div class="message-subject">
+                            <h4><%= message.Subject %></h4>
+                        </div>
+                    </div>
+                </header>
+                <div class="message-body">
+                    <h4><%= message.Subject %></h4>
+                    <p><%= message.messages %></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>

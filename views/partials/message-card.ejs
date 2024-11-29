@@ -1,0 +1,14 @@
+<a href="/message-detail/<%= message.id %>" class="message-card">
+    <div class="container">
+        <header>
+            <h3><%= message.receiver %></h3>
+            <p><%= message.dateCreated %></p>
+        </header>
+        
+        <div class="message-body">
+            <h4 class="message-title"><%= message.Subject %></h4>
+            <p class="message-content"><%= message.messages %></p>
+        </div>
+    </div>
+
+</a>
