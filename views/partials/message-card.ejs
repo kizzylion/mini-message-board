@@ -1,13 +1,14 @@
 <a href="/<%= message.id %>" class="message-card">
     <div class="container">
         <header>
-            <h3><%= message.receiver %></h3>
-            <p><%= message.dateCreated %></p>
+            <h3 class="receiver" ><%= message.receiver %></h3>
+            <!-- format date with time -->
+            <p class="date"><%= new Date(message.dateCreated).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) %></p>
         </header>
         
         <div class="message-body">
-            <h4 class="message-title"><%= message.subject %></h4>
-            <div class="message-content"><%= message.message %></div>
+            <h4 class="subject"><%= message.subject %></h4>
+            <p class="message-content"><%= message.message %></p>
             
         </div>
     </div>
