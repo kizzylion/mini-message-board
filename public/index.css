@@ -104,10 +104,13 @@ main > .container {
   max-width: 1200px;
   margin: 0 auto;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 main .chats,
-main .message-detail {
+main .message-detail,
+main .new-message-form {
   display: flex;
   flex-direction: column;
   gap: 0.002;
@@ -214,7 +217,8 @@ main .chats .message-card:hover .message-content {
 
 /* message detail */
 
-main .message-detail {
+main .message-detail,
+main .new-message-form {
 
   background-color: #fff;
   height: 100%;
@@ -225,7 +229,8 @@ main .message-detail {
 
 }
 
-main .message-detail header {
+main .message-detail header,
+main .new-message-form header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -238,7 +243,8 @@ main .message-detail header {
 
 }
 
-main .message-detail .content-header .close-icon {
+main .message-detail .content-header .close-icon,
+main .new-message-form .content-header .close-icon {
     width: 0.75rem;
     height: 0.75rem;
     display: flex;
@@ -248,7 +254,8 @@ main .message-detail .content-header .close-icon {
     border-radius: 50%;
 }
 
-main .message-detail .content-header .close-icon svg {
+main .message-detail .content-header .close-icon svg,
+main .new-message-form .content-header .close-icon svg {
   
   fill: #1a1a1a;
 
@@ -307,6 +314,71 @@ main .message-detail .message-body .message-content {
   color: #0E0E0E;
   font-weight: 400;
 
+}
+
+/* new message form */
+
+main .new-message-form .new-message-form-body {
+  padding: 1.25rem 0.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+
+}
+
+main .new-message-form .new-message-form-body .form-field {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+main .new-message-form .new-message-form-body .textarea label {
+  border-bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main .new-message-form .new-message-form-body label {
+  font-size: 0.75rem;
+  color: #737373;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+main .new-message-form .new-message-form-body label input,
+main .new-message-form .new-message-form-body label textarea {
+  width: 100%;
+  border: 0;
+
+}
+main .new-message-form .new-message-form-body label input {
+  font-size: 0.75rem;
+  color: #282828;
+}
+main .new-message-form .new-message-form-body label input:focus {
+  outline: none;
+}
+
+main .new-message-form .new-message-form-body label textarea:focus {
+  outline: none;
+}
+
+main .new-message-form .new-message-form-body label textarea::placeholder {
+  color: #9d9d9d;
+  font-size: 0.75rem;
+}
+
+main .new-message-form .new-message-form-body button {
+  width: 100%;
+  border: 0;
+  background-color: #4859d6;
+  color: #fff;
+  padding: 0.5rem 0;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: auto;
 }
 
 footer#footer {
