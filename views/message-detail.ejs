@@ -14,9 +14,9 @@
                             </svg>
                         </a>
 
-                        <a class="delete-icon" data-doc="<%= message.id %>">
-                            <img class="trash-icon" src="/images/trash.svg" alt="delete">
-                        </a>
+                        <form action="/<%= message.id %>/delete" method="POST" class="delete-icon" data-doc="<%= message.id %>">
+                            <button type="submit"><img class="trash-icon" src="/images/trash.svg" alt="delete"></button>
+                        </form>
                     </div>
                     <div class="message-detail-header">
                         <div class="message-receiver">
@@ -36,25 +36,6 @@
             </div>
         </div>
     </main>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const deleteIcon = document.querySelector(".delete-icon");
-            const messageId = deleteIcon.dataset.doc;
 
-            deleteIcon.addEventListener("click", (e) => {
-                e.preventDefault();
-
-                const endpoint = `/${messageId}`;
-            
-                fetch(endpoint, {
-                    method: "DELETE",
-                }).then(() => {
-                    window.location.href = "/";
-                }).catch((err) => {
-                    console.log(err);
-                });
-            });
-        });
-    </script>
 </body>
 </html>

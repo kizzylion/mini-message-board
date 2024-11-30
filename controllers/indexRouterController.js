@@ -40,7 +40,7 @@ const createMessage = async (req, res) => {
 
 const deleteMessage = async (req, res) => {
   await messageObject.deleteMessage(req.params.messageId);
-  res.status(200).json({ message: "Message deleted successfully" });
+  res.redirect("/");
 };
 
 module.exports = {

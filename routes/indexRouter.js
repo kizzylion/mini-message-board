@@ -16,6 +16,6 @@ homeRouter.get("/:messageId", getMessageDetail);
 
 homeRouter.post("/new-message", createMessage);
 
-homeRouter.delete("/:messageId", deleteMessage);
+homeRouter.post("/:messageId/delete", deleteMessage);
 
 module.exports = homeRouter;
