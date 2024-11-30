@@ -1,5 +1,5 @@
 const messageObject = require("../db");
-const { format } = require("date-fns");
+
 const { v4: uuidv4 } = require("uuid");
 
 const getAllMessages = async (req, res) => {
@@ -38,9 +38,15 @@ const createMessage = async (req, res) => {
   res.redirect("/");
 };
 
+const deleteMessage = async (req, res) => {
+  await messageObject.deleteMessage(req.params.messageId);
+  res.status(200).json({ message: "Message deleted successfully" });
+};
+
 module.exports = {
   getAllMessages,
   getMessageDetail,
   getNewMessage,
   createMessage,
+  deleteMessage,
 };

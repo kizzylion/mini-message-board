@@ -116,6 +116,8 @@ main .new-message-form {
   gap: 0.002;
   padding: 0;
   max-width: 596px;
+  height: 100%;
+  overflow: auto;
 }
 main .chats .message-card {
   background-color: #FBFBFB;
@@ -243,6 +245,13 @@ main .new-message-form header {
 
 }
 
+main .message-detail .content-header .close-icon-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 main .message-detail .content-header .close-icon,
 main .new-message-form .content-header .close-icon {
     width: 0.75rem;
@@ -259,6 +268,11 @@ main .new-message-form .content-header .close-icon svg {
   
   fill: #1a1a1a;
 
+}
+
+main .message-detail .content-header .close-icon-container .trash-icon {
+  width: 0.75rem;
+  height: 0.75rem;
 }
 
 main .message-detail .message-detail-header {
@@ -299,6 +313,7 @@ main .message-detail .message-detail-header .message-subject .subject {
 main .message-detail .message-body {
   padding: 1.25rem 0.5rem;
   height: 100%;
+  overflow: auto;
 
 }
 

@@ -64,10 +64,16 @@ const createMessage = (message) => {
   messages.push(message);
 };
 
+const deleteMessage = (id) => {
+  const index = messages.findIndex((m) => m.id == id);
+  messages.splice(index, 1);
+};
+
 const messageObject = {
   getMessages,
   getMessageById,
   createMessage,
+  deleteMessage,
 };
 
 module.exports = messageObject;
