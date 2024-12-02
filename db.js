@@ -50,7 +50,9 @@ const getMessages = async () => {
   // } catch (error) {
   //   console.error(error);
   // }
-  const result = await pool.query("SELECT * FROM messages");
+  const result = await pool.query(
+    "SELECT * FROM messages ORDER BY date_created DESC"
+  );
   return result.rows;
 };
 
