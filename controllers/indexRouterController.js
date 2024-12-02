@@ -32,8 +32,7 @@ const getNewMessage = async (req, res) => {
 const createMessage = async (req, res) => {
   const message = req.body;
 
-  message.id = uuidv4();
-  message.dateCreated = new Date();
+  console.log(message);
   await messageObject.createMessage(message);
   res.redirect("/");
 };

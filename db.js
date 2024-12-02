@@ -70,18 +70,16 @@ const getMessageById = async (id) => {
 };
 
 const createMessage = async (message) => {
-  // messages.push(message);
-  const result = await pool.query(
-    "INSERT INTO messages (id, receiver, subject, message, date_created) VALUES ($1, $2, $3, $4, $5)",
-    [
-      message.id,
-      message.receiver,
-      message.subject,
-      message.message,
-      message.dateCreated,
-    ]
-  );
-  return result.rows[0];
+  try {
+    const result = await pool.query(
+      "INSERT INTO messages (receiver, subject, message) VALUES ($1, $2, $3) RETURNING *",
+      [message.receiver, message.subject, message.message]
+    );
+    return result.rows[0]; // Return the newly created message
+  } catch (error) {
+    console.error("Error creating message:", error);
+    throw error; // Re-throw the error so the caller can handle it
+  }
 };
 
 const deleteMessage = async (id) => {
