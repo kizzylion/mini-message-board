@@ -1,4 +1,9 @@
 const { getTime } = require("date-fns");
+const dotenv = require("dotenv");
+
+dotenv.config();
+
+const pool = require("./db/pool");
 
 const messages = [
   {
@@ -36,37 +41,54 @@ const messages = [
   },
 ];
 
-const getMessages = () => {
-  try {
-    const sortedMessages = messages.sort(
-      (a, b) => getTime(b.dateCreated) - getTime(a.dateCreated)
-    );
-    return sortedMessages;
-  } catch (error) {
-    console.error(error);
-  }
+const getMessages = async () => {
+  // try {
+  //   const sortedMessages = messages.sort(
+  //     (a, b) => getTime(b.dateCreated) - getTime(a.dateCreated)
+  //   );
+  //   return sortedMessages;
+  // } catch (error) {
+  //   console.error(error);
+  // }
+  const result = await pool.query("SELECT * FROM messages");
+  return result.rows;
 };
 
 const getMessageById = async (id) => {
-  try {
-    const normalizedId = !isNaN(id) ? Number(id) : id;
-    const message = messages.find((message) => message.id == normalizedId);
-    if (!message) {
-      throw new Error("Message not found");
-    }
-    return message;
-  } catch (error) {
-    console.error(error);
-  }
+  // try {
+  //   const normalizedId = !isNaN(id) ? Number(id) : id;
+  //   const message = messages.find((message) => message.id == normalizedId);
+  //   if (!message) {
+  //     throw new Error("Message not found");
+  //   }
+  //   return message;
+  // } catch (error) {
+  //   console.error(error);
+  // }
+  const result = await pool.query("SELECT * FROM messages WHERE id = $1", [id]);
+  return result.rows[0];
 };
 
-const createMessage = (message) => {
-  messages.push(message);
+const createMessage = async (message) => {
+  // messages.push(message);
+  const result = await pool.query(
+    "INSERT INTO messages (id, receiver, subject, message, date_created) VALUES ($1, $2, $3, $4, $5)",
+    [
+      message.id,
+      message.receiver,
+      message.subject,
+      message.message,
+      message.dateCreated,
+    ]
+  );
+  return result.rows[0];
 };
 
-const deleteMessage = (id) => {
-  const index = messages.findIndex((m) => m.id == id);
-  messages.splice(index, 1);
+const deleteMessage = async (id) => {
+  // const index = messages.findIndex((m) => m.id == id);
+  // messages.splice(index, 1);
+  const result = await pool.query("DELETE FROM messages WHERE id = $1", [id]);
+  return result.rows[0];
 };
 
 const messageObject = {
